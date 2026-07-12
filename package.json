@@ -1,0 +1,33 @@
+{
+  "name": "ai-video-editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An AI video-editing agent that learns your short-form style and assembles your raw footage, B-roll, transitions, captions and sound effects into a finished video.",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "cli": "tsx cli.ts",
+    "ingest": "tsx pipeline/ingest.ts",
+    "transcribe": "tsx pipeline/transcribe.ts",
+    "render": "tsx pipeline/render.ts",
+    "typecheck": "tsc --noEmit",
+    "remotion:studio": "remotion studio remotion/index.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.320",
+    "@remotion/captions": "4.0.320",
+    "@remotion/cli": "4.0.320",
+    "@remotion/media-utils": "4.0.320",
+    "@remotion/renderer": "4.0.320",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.320",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.5",
+    "@types/react": "19.0.2",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2"
+  }
+}

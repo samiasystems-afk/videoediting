@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+
+# Ephemeral working data — videos, frames, transcripts, renders.
+# Never commit large media. Keep only style/ and assets/sfx/ (small, versioned).
+data/
+!data/.gitkeep
+
+# Remotion / bundler caches
+.remotion/
+out/
