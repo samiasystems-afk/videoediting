@@ -162,6 +162,19 @@ export const ClipEvent = z.object({
   label: z.string().optional(),
   /** Mute this clip's audio (common for B-roll over talking-head audio). */
   muted: z.boolean().default(false),
+  /**
+   * Optional slow continuous punch-in (Ken Burns) applied to THIS clip for its
+   * whole duration. Unlike a `zoom` event (which only affects the main track),
+   * this scales the clip itself — the way to punch in on a B-roll graphic.
+   */
+  kenBurns: z
+    .object({
+      fromScale: z.number().min(1).max(3).default(1),
+      toScale: z.number().min(1).max(3).default(1.12),
+      focusX: Norm.default(0.5),
+      focusY: Norm.default(0.5),
+    })
+    .optional(),
 });
 export type ClipEvent = z.infer<typeof ClipEvent>;
 

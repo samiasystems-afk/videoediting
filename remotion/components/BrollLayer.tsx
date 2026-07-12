@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, OffthreadVideo, Sequence } from "remotion";
+import { AbsoluteFill, OffthreadVideo, Sequence, useCurrentFrame, useVideoConfig, interpolate } from "remotion";
 import type { Edl, ClipEvent } from "../../lib/schemas.js";
 
 /**
@@ -20,7 +20,7 @@ export const BrollLayer: React.FC<{ edl: Edl }> = ({ edl }) => {
         const durationInFrames = Math.max(1, Math.round((clip.outSeconds - clip.inSeconds) * fps));
         return (
           <Sequence key={i} from={from} durationInFrames={durationInFrames} name={clip.label ?? `broll ${i}`}>
-            <AbsoluteFill style={{ backgroundColor: "#000" }}>
+            <KenBurns clip={clip}>
               <OffthreadVideo
                 src={clip.src}
                 trimBefore={Math.round(clip.inSeconds * fps)}
@@ -28,10 +28,40 @@ export const BrollLayer: React.FC<{ edl: Edl }> = ({ edl }) => {
                 muted={clip.muted}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
-            </AbsoluteFill>
+            </KenBurns>
           </Sequence>
         );
       })}
     </>
+  );
+};
+
+/**
+ * Applies a slow continuous punch-in (Ken Burns) across the clip's own duration,
+ * scaling the clip itself. On a solid black backdrop so any letterboxing stays
+ * clean while the graphic slowly grows.
+ */
+const KenBurns: React.FC<{ clip: ClipEvent; children: React.ReactNode }> = ({ clip, children }) => {
+  const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
+  const kb = clip.kenBurns;
+  if (!kb) {
+    return <AbsoluteFill style={{ backgroundColor: "#000" }}>{children}</AbsoluteFill>;
+  }
+  const scale = interpolate(frame, [0, durationInFrames], [kb.fromScale, kb.toScale], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#000" }}>
+      <AbsoluteFill
+        style={{
+          transform: `scale(${scale})`,
+          transformOrigin: `${kb.focusX * 100}% ${kb.focusY * 100}%`,
+        }}
+      >
+        {children}
+      </AbsoluteFill>
+    </AbsoluteFill>
   );
 };
