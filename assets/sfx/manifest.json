@@ -1,0 +1,58 @@
+[
+  {
+    "file": "whoosh_1.wav",
+    "label": "whoosh (strong)",
+    "sourceVideo": "ex1.mp4",
+    "atSeconds": 32.96,
+    "triggerNotes": "On a hard cut into a new graphic/B-roll shot; the loudest transition hit in the set."
+  },
+  {
+    "file": "whoosh_2.wav",
+    "label": "whoosh",
+    "sourceVideo": "ex1.mp4",
+    "atSeconds": 38.76,
+    "triggerNotes": "Scene-change transition into a screen recording."
+  },
+  {
+    "file": "whoosh_3.wav",
+    "label": "whoosh",
+    "sourceVideo": "ex1.mp4",
+    "atSeconds": 12.43,
+    "triggerNotes": "Cut from talking head into full-screen graphic."
+  },
+  {
+    "file": "whoosh_4.wav",
+    "label": "whoosh",
+    "sourceVideo": "ex2.mp4",
+    "atSeconds": 12.88,
+    "triggerNotes": "Cut into B-roll insert."
+  },
+  {
+    "file": "whoosh_5.wav",
+    "label": "whoosh (sharp)",
+    "sourceVideo": "ex3.mp4",
+    "atSeconds": 12.29,
+    "triggerNotes": "Sharp transition hit on a logo reveal."
+  },
+  {
+    "file": "whoosh_6.wav",
+    "label": "whoosh",
+    "sourceVideo": "ex3.mp4",
+    "atSeconds": 25.03,
+    "triggerNotes": "Transition between graphic shots."
+  },
+  {
+    "file": "whoosh_7.wav",
+    "label": "whoosh",
+    "sourceVideo": "ex4.mp4",
+    "atSeconds": 5.54,
+    "triggerNotes": "Fast cut in a rapid B-roll montage sequence."
+  },
+  {
+    "file": "whoosh_8.wav",
+    "label": "whoosh",
+    "sourceVideo": "ex4.mp4",
+    "atSeconds": 3.1,
+    "triggerNotes": "Cut into AI-generated B-roll."
+  }
+]

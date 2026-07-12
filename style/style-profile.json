@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "summary": "Fast-paced tech-news short-form style (vertical 9:16). A talking-head creator (dark tee, podcast mic, warm dim room) intercut relentlessly with full-screen visual evidence: logo cards on clean white backgrounds, dark-mode screen recordings with rounded corners, benchmark charts, and cinematic AI-generated B-roll. Frequent split-screen layout with the graphic on the top half and the talking head on the bottom half. Median shot length ~1.3s (23-43 cuts/min) with every silence cut out — the energy never drops. Captions are 1-3 words at a time, heavy bold sans-serif in sentence case (never uppercase), pure white; over light or busy footage they sit in a translucent dark-gray rounded pill (TikTok-style). No colored highlight words. Slow punch-in zooms on logos/graphics while they're on screen. Hard cuts only, with a whoosh sound effect riding most scene changes.",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "captions": {
+    "fontFamily": "Inter",
+    "fontWeight": 800,
+    "fontSizeRel": 0.032,
+    "uppercase": false,
+    "textColor": "#FFFFFF",
+    "highlightColor": "#FFFFFF",
+    "strokeColor": "#000000",
+    "strokeWidthRel": 0.08,
+    "shadow": true,
+    "positionY": 0.72,
+    "animation": "pop",
+    "wordsPerGroup": 3,
+    "emphasizeKeywords": false
+  },
+  "pacing": {
+    "medianShotSeconds": 1.3,
+    "silenceCutThresholdSeconds": 0.35,
+    "removeFillerWords": true
+  },
+  "zoom": {
+    "perMinute": 8,
+    "scale": 1.12,
+    "rampSeconds": 1.2,
+    "triggerNotes": "Slow continuous punch-in on logo cards, charts, and screen recordings for the whole time they are on screen (Ken Burns style), not snappy jump-zooms. On the talking head, subtle alternation between two crop sizes across jump cuts."
+  },
+  "transitions": {
+    "kinds": ["cut"],
+    "defaultDurationSeconds": 0,
+    "triggerNotes": "Hard cuts only — no dissolves, no dips, no wipes. The whoosh SFX does the transition work, not a visual effect."
+  },
+  "sfx": [
+    {
+      "file": "whoosh_1.wav",
+      "label": "whoosh (strong)",
+      "triggerNotes": "Biggest reveals: cutting to a headline logo or the video's main subject.",
+      "gain": 1
+    },
+    {
+      "file": "whoosh_2.wav",
+      "label": "whoosh",
+      "triggerNotes": "Cut into a screen recording.",
+      "gain": 1
+    },
+    {
+      "file": "whoosh_3.wav",
+      "label": "whoosh",
+      "triggerNotes": "Cut from talking head into a full-screen graphic.",
+      "gain": 1
+    },
+    {
+      "file": "whoosh_4.wav",
+      "label": "whoosh",
+      "triggerNotes": "Cut into a B-roll insert.",
+      "gain": 1
+    },
+    {
+      "file": "whoosh_5.wav",
+      "label": "whoosh (sharp)",
+      "triggerNotes": "Logo reveal.",
+      "gain": 1
+    },
+    {
+      "file": "whoosh_6.wav",
+      "label": "whoosh",
+      "triggerNotes": "Between consecutive graphic shots.",
+      "gain": 1
+    },
+    {
+      "file": "whoosh_7.wav",
+      "label": "whoosh",
+      "triggerNotes": "Rapid montage cuts.",
+      "gain": 1
+    },
+    {
+      "file": "whoosh_8.wav",
+      "label": "whoosh",
+      "triggerNotes": "Cut into cinematic AI B-roll.",
+      "gain": 1
+    }
+  ],
+  "notes": "Layout system: (1) full-screen talking head; (2) split-screen with graphic top ~55% and talking head bottom ~45% — captions sit at the seam; (3) full-screen graphic takeover (logo on white, chart on white, dark screen recording, AI B-roll) while narration continues underneath. Roughly 50-70% of runtime is covered by graphics/B-roll, not the face. Logo cards: brand logo centered on pure white, entering with a slow zoom. Screen recordings: dark UI, rounded-corner window on near-black background. Caption pill: translucent dark gray (#555555 at ~75% opacity) rounded rectangle, used whenever the background is light or busy; plain white text with thin black stroke on dark simple footage. Captions are small relative to frame (~3% of height), always horizontally centered, roughly 72% down the frame. Never uppercase, never colored. B-roll placement is literal: when a product/company is named, its logo or UI is on screen within a beat. Silences are cut so aggressively that consecutive sentences butt against each other; speech never pauses. A whoosh SFX rides most (not all) cuts into graphics — skip it on rapid montage runs except the first cut. Music: none or extremely subtle; the mix is voice + whooshes."
+}
