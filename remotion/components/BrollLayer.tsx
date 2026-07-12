@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, OffthreadVideo, Sequence, useCurrentFrame, useVideoConfig, interpolate } from "remotion";
+import { AbsoluteFill, OffthreadVideo, Sequence, useCurrentFrame, useVideoConfig, interpolate, Easing } from "remotion";
 import type { Edl, ClipEvent } from "../../lib/schemas.js";
 
 /**
@@ -51,6 +51,7 @@ const KenBurns: React.FC<{ clip: ClipEvent; children: React.ReactNode }> = ({ cl
   const scale = interpolate(frame, [0, durationInFrames], [kb.fromScale, kb.toScale], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
+    easing: Easing.inOut(Easing.cubic),
   });
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>

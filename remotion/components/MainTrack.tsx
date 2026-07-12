@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, OffthreadVideo, Sequence, useCurrentFrame, interpolate } from "remotion";
+import { AbsoluteFill, OffthreadVideo, Sequence, useCurrentFrame, interpolate, Easing } from "remotion";
 import type { Edl, ClipEvent, ZoomEvent } from "../../lib/schemas.js";
 
 /**
@@ -52,7 +52,13 @@ const ZoomWrapper: React.FC<{
       t,
       [z.startSeconds, z.startSeconds + ramp, z.endSeconds - ramp, z.endSeconds],
       [1, z.scale, z.scale, 1],
-      { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+      {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        // Smooth easing on the ramp so the zoom accelerates/decelerates
+        // naturally instead of moving at a constant (linear) speed.
+        easing: Easing.inOut(Easing.cubic),
+      },
     );
     if (s > scale) {
       scale = s;
