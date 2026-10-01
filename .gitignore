@@ -12,3 +12,7 @@ data/
 # Remotion / bundler caches
 .remotion/
 out/
+
+# Promo projects: renders + synthesised audio are rebuilt from code
+projects/*/out/
+projects/*/public/audio/
